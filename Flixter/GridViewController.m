@@ -7,9 +7,12 @@
 
 #import "GridViewController.h"
 #import "GridCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface GridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSArray *movies;
 
 @end
 
@@ -29,7 +32,7 @@
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.gridView insertSubview:self.refreshControl atIndex:0];
 }
 
 - (void)fetchMovies {
@@ -65,7 +68,7 @@
                self.movies = dataDictionary[@"results"];
                
                // TODO: Reload your table view data
-               [self.tableView reloadData];
+               [self.gridView reloadData];
            }
         
         [self.refreshControl endRefreshing];
@@ -73,10 +76,9 @@
     [task resume];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)gridView cellForItemAtIndexPath:
     (NSIndexPath *)indexPath {
-    
-    GridCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GridCell"];
+    GridCell *cell = [gridView dequeueReusableCellWithReuseIdentifier:@"GridCell" forIndexPath:indexPath];
     
     NSDictionary *movie = self.movies[indexPath.row];
     
@@ -91,14 +93,23 @@
     return cell;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.movies.count;
 }
-*/
+
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+//'could not dequeue a view of kind: UICollectionElementKindCell with identifier GridCell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard'
 
 @end
