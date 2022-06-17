@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="80"/>
+            <point key="canvasLocation" x="-2146" y="94"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="NN0-uZ-Kdj">
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXZ-Fv-q3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965" y="80"/>
+            <point key="canvasLocation" x="-1377" y="94"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cGe-Wt-o6l">
@@ -189,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPi-Xy-Kd0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2484.057971014493" y="97.767857142857139"/>
+            <point key="canvasLocation" x="-297" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t1j-Lw-Hk4">
@@ -207,11 +207,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYX-8L-LLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-948" y="80"/>
+            <point key="canvasLocation" x="-2935" y="94"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4NW-lu-IKy"/>
+        <segue reference="HmM-iq-Nt4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
