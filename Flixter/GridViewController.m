@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray *movies;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-//    [self.activityIndicator startAnimating];
+    [self.activityIndicator startAnimating];
     self.gridView.dataSource = self;
     self.gridView.delegate = self;
     
@@ -33,6 +34,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.gridView insertSubview:self.refreshControl atIndex:0];
+//    [self.activityIndicator stopAnimating];
 }
 
 - (void)fetchMovies {
@@ -48,6 +50,7 @@
     // Create session task
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
+//               [self.activityIndicator stopAnimating];
                NSLog(@"%@", [error localizedDescription]);
                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies"
                                             message:@"Check your internet connection"
@@ -61,6 +64,7 @@
                [self presentViewController:alert animated:YES completion:nil];
            }
            else {
+               [self.activityIndicator stopAnimating];
                // TODO: Get the array of movies
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 

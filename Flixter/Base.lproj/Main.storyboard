@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieViewController" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="EGK-Ia-5Ao"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" id="EGK-Ia-5Ao"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="6UK-kw-wZm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -135,7 +135,7 @@
             </objects>
             <point key="canvasLocation" x="-1645" y="-692"/>
         </scene>
-        <!--Item-->
+        <!--Movies-->
         <scene sceneID="p4x-q9-K0G">
             <objects>
                 <viewController id="fC8-EJ-Wb5" customClass="GridViewController" sceneMemberID="viewController">
@@ -153,6 +153,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="Hmi-il-kbf">
+                                    <rect key="frame" x="0.0" y="-44" width="400" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="nPz-JX-s3u" customClass="GridCell">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="187"/>
@@ -177,8 +181,9 @@
                         <viewLayoutGuide key="safeArea" id="oYE-RK-idh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="fZL-8a-4nh"/>
+                    <tabBarItem key="tabBarItem" title="Movies" id="fZL-8a-4nh"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Hmi-il-kbf" id="E3b-X6-lQm"/>
                         <outlet property="gridView" destination="pbx-hr-SbG" id="yWI-it-IAi"/>
                     </connections>
                 </viewController>
