@@ -22,8 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //     Do any additional setup after loading the view.
-    NSString *title = self.movieInfo[@"title"];
-    NSString *synopsis = self.movieInfo[@"overview"];
+    NSString *title = self.movieInfo.title;
+    NSString *synopsis = self.movieInfo.synopsis;
 
     //set text
     self.titleLabel.text = title;
@@ -31,14 +31,14 @@
     //self.releaseDateLabel.text = self.movieInfo[@"release_date"];
 
 //    backdrop
-    NSString *backdropPath = self.movieInfo[@"backdrop_path"];
+    NSString *backdropPath = self.movieInfo.backdrop;
     NSString *backdropImageURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *fullBackdropPath = [backdropImageURLString stringByAppendingString:backdropPath];
     NSURL *backdropImageURL = [NSURL URLWithString:fullBackdropPath];
     [self.backdropView setImageWithURL:backdropImageURL];
 
 //    fetch the movie image
-    NSString *posterPath = self.movieInfo[@"poster_path"];
+    NSString *posterPath = self.movieInfo.poster;
     NSString *posterImageURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *fullPosterPath = [posterImageURLString stringByAppendingString:posterPath];
     NSURL *posterImageURL = [NSURL URLWithString:fullPosterPath];

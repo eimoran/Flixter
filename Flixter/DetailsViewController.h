@@ -6,11 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
-@property (strong, nonatomic) NSDictionary *movieInfo;
+@property (strong, nonatomic) Movie *movieInfo;
 
 @end
 
